@@ -9,16 +9,16 @@ import com.lakeqiu.entity.dto.Result;
 import com.lakeqiu.service.combine.HeadLineShopCategoryCombineService;
 import com.lakeqiu.service.solo.HeadLineService;
 import com.lakeqiu.service.solo.ShopCategoryService;
+import org.myspringframework.core.annotation.Service;
+import org.myspringframework.inject.annotation.Autowired;
 
 import java.util.List;
 
-//import java.util.List;
-
-//@Service
+@Service
 public class HeadLineShopCategoryCombineServiceImpl implements HeadLineShopCategoryCombineService {
-//    @Autowired
+    @Autowired
     private HeadLineService headLineService;
-//    @Autowired
+    @Autowired
     private ShopCategoryService shopCategoryService;
     @Override
     public Result<MainPageInfoDTO> getMainPageInfo() {

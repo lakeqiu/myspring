@@ -3,10 +3,11 @@ package com.lakeqiu.service.solo.impl;
 import com.lakeqiu.entity.bo.ShopCategory;
 import com.lakeqiu.entity.dto.Result;
 import com.lakeqiu.service.solo.ShopCategoryService;
+import org.myspringframework.core.annotation.Service;
 
 import java.util.List;
 
-//@Service
+@Service
 public class ShopCategoryServiceImpl implements ShopCategoryService {
     @Override
     public Result<Boolean> addShopCategory(ShopCategory shopCategory) {

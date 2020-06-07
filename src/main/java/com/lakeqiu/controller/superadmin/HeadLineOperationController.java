@@ -3,14 +3,16 @@ package com.lakeqiu.controller.superadmin;
 import com.lakeqiu.entity.bo.HeadLine;
 import com.lakeqiu.entity.dto.Result;
 import com.lakeqiu.service.solo.HeadLineService;
+import org.myspringframework.core.annotation.Controller;
+import org.myspringframework.inject.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-//@Controller
+@Controller
 public class HeadLineOperationController {
-//    @Autowired
+    @Autowired
     private HeadLineService headLineService;
     public Result<Boolean> addHeadLine(HttpServletRequest req, HttpServletResponse resp){
         return headLineService.addHeadLine(new HeadLine());
