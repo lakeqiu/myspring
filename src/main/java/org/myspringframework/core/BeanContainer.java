@@ -3,6 +3,7 @@ package org.myspringframework.core;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.myspringframework.aop.annotation.Aspect;
 import org.myspringframework.core.annotation.Component;
 import org.myspringframework.core.annotation.Controller;
 import org.myspringframework.core.annotation.Repository;
@@ -30,7 +31,7 @@ public class BeanContainer {
      * 用来判断bean是否需要加载的列表（有这些注解说明有IOC容器管理，需要加载）
      */
     private static final List<Class<? extends Annotation>> BEAN_ANNOTATION
-            = Arrays.asList(Component.class, Controller.class, Repository.class, Service.class);
+            = Arrays.asList(Component.class, Controller.class, Repository.class, Service.class, Aspect.class);
 
     /**
      * 容器是否已经被加载过

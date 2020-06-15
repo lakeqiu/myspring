@@ -16,6 +16,11 @@ public class MainPageController {
     @Autowired(value = "HeadLineShopCategoryCombineServiceImpl")
     private HeadLineShopCategoryCombineService headLineShopCategoryCombineService;
     public Result<MainPageInfoDTO> getMainPageInfo(HttpServletRequest req, HttpServletResponse resp){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return headLineShopCategoryCombineService.getMainPageInfo();
     }
 }

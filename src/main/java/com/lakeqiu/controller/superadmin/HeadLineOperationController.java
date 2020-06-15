@@ -15,6 +15,12 @@ public class HeadLineOperationController {
     @Autowired
     private HeadLineService headLineService;
     public Result<Boolean> addHeadLine(HttpServletRequest req, HttpServletResponse resp){
+        try {
+            System.out.println("addHeadLine");
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return headLineService.addHeadLine(new HeadLine());
     };
     public Result<Boolean> removeHeadLine(HttpServletRequest req, HttpServletResponse resp){
