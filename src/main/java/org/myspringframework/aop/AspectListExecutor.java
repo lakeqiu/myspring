@@ -9,6 +9,7 @@ import org.myspringframework.util.ValidationUtil;
 import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -47,8 +48,12 @@ public class AspectListExecutor implements MethodInterceptor {
         // 定义返回值
         Object returnValue = null;
 
-        // 没有代理信息，直接返回，不用进行代理了
+        // 筛选出代理 method 方法的 AspectInfo，精筛
+        collectAccurateMatchedAspectList(method);
+
+        // 没有代理信息，直接执行被代理方法，不用进行代理了
         if (ValidationUtil.isEmpty(sortAspectInfoList)) {
+            returnValue = methodProxy.invokeSuper(proxy, args);
             return returnValue;
         }
 
@@ -68,6 +73,26 @@ public class AspectListExecutor implements MethodInterceptor {
         }
 
         return returnValue;
+    }
+
+    /**
+     * 筛选出代理 method 方法的 AspectInfo，精筛
+     * @param method 方法
+     */
+    private void collectAccurateMatchedAspectList(Method method) {
+        // 都没有切面类，说明 method 方法没有被代理，直接返回
+        if (ValidationUtil.isEmpty(sortAspectInfoList)) {
+            return;
+        }
+
+        Iterator<AspectInfo> it = sortAspectInfoList.iterator();
+        while (it.hasNext()){
+            AspectInfo aspectInfo = it.next();
+            // AspectInfo不完全匹配 method 方法，移除
+            if(!aspectInfo.getPointcutLocator().accurateMatches(method)){
+                it.remove();
+            }
+        }
     }
 
     /**

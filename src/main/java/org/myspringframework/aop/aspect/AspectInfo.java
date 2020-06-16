@@ -2,9 +2,10 @@ package org.myspringframework.aop.aspect;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.myspringframework.aop.PointcutLocator;
 
 /**
- * Aspect（切面）的详细详细
+ * Aspect（切面）的详细
  * @author lakeqiu
  */
 @AllArgsConstructor
@@ -18,4 +19,6 @@ public class AspectInfo {
      * 执行对象
      */
     private DefaultAspect aspectObject;
+
+    private PointcutLocator pointcutLocator;
 }

@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * @author lakeqiu
  */
 @Slf4j
-@Aspect(Controller.class)
+@Aspect(pointcut = "execution(* com.lakeqiu.controller.superadmin..*.*(..))")
 @Order(0)
 public class ControllerTimeCalculatorAspect extends DefaultAspect {
     private long startTime;
