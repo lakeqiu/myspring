@@ -1,6 +1,6 @@
 package org.myspringframework.core;
 
-import com.lakeqiu.controller.DispatcherServlet;
+import org.myspringframework.mvc.DispatcherServlet;
 import com.lakeqiu.controller.frontend.MainPageController;
 import com.lakeqiu.service.solo.HeadLineService;
 import com.lakeqiu.service.solo.impl.HeadLineServiceImpl;

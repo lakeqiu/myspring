@@ -70,6 +70,7 @@ public class AspectListExecutor implements MethodInterceptor {
         } catch (Exception e) {
             // 4、如果被代理方法执行过程中抛出异常，则按照order的顺序降序执行完所有的Aspect的afterThrowing方法
             invokeAfterThrowingAdvices(method, args, e);
+            throw new RuntimeException(e);
         }
 
         return returnValue;

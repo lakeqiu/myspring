@@ -1,5 +1,6 @@
 package org.myspringframework.aop;
 
+import com.lakeqiu.controller.frontend.MainPageController;
 import com.lakeqiu.controller.superadmin.HeadLineOperationController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,9 @@ public class AspectWeaverTest {
         new DependencyInjector().doIoc();
 
         HeadLineOperationController controller = (HeadLineOperationController) container.getBean(HeadLineOperationController.class);
-        controller.addHeadLine(null, null);
+        controller.modifyHeadLine(null, null);
+
+        MainPageController pageController = (MainPageController) container.getBean(MainPageController.class);
+        pageController.getMainPageInfo(null, null);
     }
 }
